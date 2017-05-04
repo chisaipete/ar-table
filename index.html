@@ -3,7 +3,18 @@
 <script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded artoolkit='sourceType: webcam;'>
-    <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+    <a-assets>
+      <a-asset-item id="dragon-obj" src="dragon.obj"></a-asset-item>
+      <a-asset-item id="dragon-mtl" src="dragon.mtl"></a-asset-item>
+      <!-- <a-asset-item id="knight-obj" src="knight.obj"></a-asset-item> -->
+      <!-- <a-asset-item id="knight-mtl" src="knight.mtl"></a-asset-item> -->
+    </a-assets>
+    <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
+    <!-- Using the asset management system. -->
+    <a-obj-model src="#dragon-obj" mtl="#dragon-mtl" position='0 0.5 0' material='opacity: 0.5;'></a-obj-model>
+    <!-- Defining the URL inline. Not recommended but may be more comfortable. -->
+    <!-- <a-obj-model src="dragon.obj" mtl="dragon.mtl"></a-obj-model> -->
+
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
 </body>

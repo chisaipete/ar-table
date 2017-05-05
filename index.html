@@ -1,20 +1,21 @@
-<!-- Augmented Reality on the Web in 10 lines of html! https://github.com/jeromeetienne/ar.js --> 
-<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-<script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
-<body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded artoolkit='sourceType: webcam;'>
-    <a-assets>
-      <a-asset-item id="dragon-obj" src="dragon.obj"></a-asset-item>
-      <a-asset-item id="dragon-mtl" src="dragon.mtl"></a-asset-item>
-      <!-- <a-asset-item id="knight-obj" src="knight.obj"></a-asset-item> -->
-      <!-- <a-asset-item id="knight-mtl" src="knight.mtl"></a-asset-item> -->
-    </a-assets>
-    <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
-    <!-- Using the asset management system. -->
-    <a-obj-model src="#dragon-obj" mtl="#dragon-mtl" position='0 0.5 0' material='opacity: 0.5;'></a-obj-model>
-    <!-- Defining the URL inline. Not recommended but may be more comfortable. -->
-    <!-- <a-obj-model src="dragon.obj" mtl="dragon.mtl"></a-obj-model> -->
+<!doctype html>
 
-    <a-marker-camera preset='hiro'></a-marker-camera>
-  </a-scene>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AR-Table</title>
+  <meta name="description" content="A AR Miniatures ">
+  <meta name="author" content="chisaipete">
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+  <!-- Add warning for browsers which aren't compatible -->
+</head>
+
+<body>
+<!--   <script src="js/scripts.js"></script> -->
+  <p>
+    <ul>
+      <li><a href="scenes/000/index.html">Proof of Concept</a></li>
+    </ul>
+  </p>
 </body>
+</html>

@@ -7,8 +7,32 @@
     <a-assets>
       <!-- <a-asset-item id="dragon-obj" src="../../assets/dragon.obj"></a-asset-item> -->
       <!-- <a-asset-item id="dragon-mtl" src="../../assets/dragon.mtl"></a-asset-item> -->
-    </a-assets>
-    <a-entity meshline="lineWidth: 3; path: -2 -1 0, 0 -2 0, 2 -1; color: #000000"></a-entity>
+    </a-assets>     <!-- relative to tag - path: X Z Y -->
+    <!-- Units seem to be in terms of the marker size, so 1" requires a 1" marker...? -->
+    <!-- Horizontal lines, more negative is in the "positive" Y direction -->
+    <!-- Vertical lines, more negative is in the "positive" X direction -->
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
+  <script>
+    var scene = document.querySelector('a-scene');
+    var x_count = 5;
+    var y_count = 5;
+    var x_width = 5;
+    var y_width = 5;
+    var line_color = 'FFFFFF';
+    var line_width = 10;
+
+    for (var x = 0; x < x_count+1; x++) {
+      var hline = document.createElement('a-entity');
+      // Horizontal
+      hline.setAttribute('meshline', 'lineWidth: '+line_width+'; path: '+(-.5)+' 0 '+(.5-x)+', '+(-.5+x_width)+' 0 '+(.5-x)+'; color: #'+ line_color);
+      scene.appendChild(hline);
+    }
+    for (var y = 0; y < y_count+1; y++) {
+      var vline = document.createElement('a-entity');
+      // Vertical
+      vline.setAttribute('meshline', 'lineWidth: '+line_width+'; path: '+(-.5+y)+' 0 '+(.5)+', '+(-.5+y)+' 0 '+(.5-y_width)+'; color: #'+ line_color);
+      scene.appendChild(vline);
+    }
+  </script>
 </body>

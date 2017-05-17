@@ -48,7 +48,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         {% if g.user.is_authenticated %}
                         <li>
-                            <a href="/prf">{{ g.user.nickname }}</a>
+                            <a href="{{ url_for('user', nickname=g.user.nickname) }}">{{ g.user.nickname }}</a>
                         </li>
                         <li>
                             <a href="{{ url_for('logout') }}">Sign out</a>

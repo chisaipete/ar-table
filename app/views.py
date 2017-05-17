@@ -9,12 +9,21 @@ from .oauth import OAuthSignIn
 def before_request():
     g.user = current_user # used for views, etc
 
-@app.route("/")
-@app.route("/index")
+@app.route('/')
+@app.route('/index')
 @login_required
 def index():
     # user = g.user
     return render_template("index.html", title='Home')#, user=user)
+
+@app.route('/user/<nickname>')
+@login_required
+def user(nickname):
+    user = User.query.filter_by(nickname=nickname).first()
+    if user == None:
+        flash('User {} not found.'.format(nickname))
+        return redirect(url_for('index'))
+    return render_template('user.html', user=user)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

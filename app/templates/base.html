@@ -30,7 +30,7 @@
                         <li>
                             <a href="/index">Home</a>
                         </li>
-                        {% if user %}
+                        {% if g.user.is_authenticated %}
                         <li>
                             <a href="/cam">Campaigns</a>
                         </li>
@@ -48,7 +48,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         {% if g.user.is_authenticated %}
                         <li>
-                            <a href="/prf">{{ user.nickname }}</a>
+                            <a href="/prf">{{ g.user.nickname }}</a>
                         </li>
                         <li>
                             <a href="{{ url_for('logout') }}">Sign out</a>

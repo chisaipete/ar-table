@@ -54,8 +54,18 @@ def oauth_callback(provider):
         return redirect(url_for('index'))
     user = User.query.filter_by(social_id=social_id).first()
     if not user:
+        #TODO: handle duplicate users and multiple services here
         user = User(social_id=social_id, nickname=username, email=email)
         db.session.add(user)
         db.session.commit()
     login_user(user, True)
     return redirect(url_for('index'))
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return render_template('500.html'), 500

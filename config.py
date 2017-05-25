@@ -9,9 +9,17 @@ WTF_CSRF_ENABLED = True
 SECRET_KEY = 'i-love-magic-beans'
 
 OAUTH_CREDENTIALS = {
-    'twitter': {
-        'id': '58bWCkDctbLCxYtqVTWycSVqv',
-        'secret': 'nt8dondH3nb1EFtt8hIntMkpUEfDnNVBZQvfJzSU50uny5ZYWb',
+    'twitter' : {
+        'id' : '58bWCkDctbLCxYtqVTWycSVqv',
+        'secret' : 'nt8dondH3nb1EFtt8hIntMkpUEfDnNVBZQvfJzSU50uny5ZYWb',
+    },
+    'google' : {
+        'id' : '1925902130-g828uab0d8a3rf81ac9pn0u8fuos5our.apps.googleusercontent.com',
+        'secret' : 'fiyOGtOt3KsT_s4PtZCLWcCV',
+    },
+    'facebook' : {
+        'id' : '313060152455426',
+        'secret' : 'c6880421db2313255d785481e24bdff0',
     },
 }
 

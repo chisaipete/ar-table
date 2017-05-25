@@ -7,6 +7,12 @@ from app import db, lm, UserMixin
 #     db.Column('accepted', db.Boolean, default=False),
 # )
 
+#TODO: add connections to form a "party"
+
+#TODO: add permissions roles association for "DM" or "Player" in a campaign
+
+#TODO: add association to have multiple social_ids per user
+
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)

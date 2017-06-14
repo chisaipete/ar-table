@@ -6,13 +6,19 @@ from config import basedir
 from flask_socketio import SocketIO
 # from config import ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
 
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+# different async modes, or leave it set to None for the application to choose
+# the best option based on installed packages.
+
+async_mode = 'gevent'
+
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login'
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode=async_mode)
 
 from app import views, models
 

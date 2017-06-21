@@ -20,10 +20,10 @@ def index():
 
 # SOCKETIO ROUTES
 
-@app.route('/scn')
+@app.route('/testscene')
 @login_required
 def scene():
-    return render_template("scene.html", title='Scene')
+    return render_template("testscene.html", title='SocketIO Test Scene')
 
 thread = None
 

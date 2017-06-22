@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    {% if g.user.is_authenticated %}
+        <h2>Welcome, {{ g.user.nickname }}!</h2>
+        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    {% else %}
+        <h2>We aren't acquainted, how sad!</h2>
+        <p><a class="btn btn-social btn-twitter" href="{{ url_for('oauth_authorize', provider='twitter') }}"><span class="fa fa-twitter"></span>Sign in with Twitter</a></p>
+        <p><a class="btn btn-social btn-facebook" href="{{ url_for('oauth_authorize', provider='facebook') }}"><span class="fa fa-facebook"></span>Sign in with Facebook</a></p>
+        <!-- <p><a class="btn btn-social btn-google" href="{{ url_for('oauth_authorize', provider='google') }}"><span class="fa fa-google"></span>Sign in with Google</a></p> -->
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <tr>
+            <td><img src="{{ user.avatar(64) }}"></td>
+            <td><h3>&nbsp;{{ user.nickname }}</h3></td>
+        </tr>
+        <tr>
+            <td><strong>Email</strong></td>
+            <td>{{ user.email }}</td>
+        </tr>
+    <table>
+{% endblock%}

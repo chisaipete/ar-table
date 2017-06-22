@@ -1,0 +1,11 @@
+# venv
+flask
+.Python
+bin
+lib
+include
+*.py[cod]
+
+# testing
+*.db
+tmp

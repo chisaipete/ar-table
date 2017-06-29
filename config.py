@@ -6,23 +6,31 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 WTF_CSRF_ENABLED = True
-SECRET_KEY = 'i-love-magic-beans'
+SECRET_KEY = '<READ FROM oauth.cred>'
 
 OAUTH_CREDENTIALS = {
     'twitter' : {
-        'id' : '58bWCkDctbLCxYtqVTWycSVqv',
-        'secret' : 'nt8dondH3nb1EFtt8hIntMkpUEfDnNVBZQvfJzSU50uny5ZYWb',
+        'id' : '<READ FROM oauth.cred>',
+        'secret' : '<READ FROM oauth.cred>',
     },
     'google' : {
-        'id' : '1925902130-g828uab0d8a3rf81ac9pn0u8fuos5our.apps.googleusercontent.com',
-        'secret' : 'fiyOGtOt3KsT_s4PtZCLWcCV',
+        'id' : '<READ FROM oauth.cred>',
+        'secret' : '<READ FROM oauth.cred>',
     },
     'facebook' : {
-        'id' : '313060152455426',
-        'secret' : 'c6880421db2313255d785481e24bdff0',
+        'id' : '<READ FROM oauth.cred>',
+        'secret' : '<READ FROM oauth.cred>',
     },
 }
 
+with open(os.path.join(basedir,'oauth.cred')) as fh:
+    for line in fh.read().strip().split('\n'):
+        if line:
+            protocol, key, value = line.split()
+            if protocol == 'flask':
+                SECRET_KEY = value
+            else:
+                OAUTH_CREDENTIALS[protocol][key] = value
 
 # MAIL_SERVER = 'localhost'
 # MAIL_PORT = 2555

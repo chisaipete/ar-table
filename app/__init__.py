@@ -1,9 +1,11 @@
+import eventlet
+eventlet.monkey_patch()
+
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin
 from config import basedir
-# from gevent.wsgi import WSGIServer
 from flask_socketio import SocketIO
 # from config import ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
 
@@ -18,7 +20,6 @@ db = SQLAlchemy(app)
 lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login'
-# http_server = WSGIServer(('', 5000), app)
 socketio = SocketIO(app, async_mode=async_mode)
 
 from app import views, models

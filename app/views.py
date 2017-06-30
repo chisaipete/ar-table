@@ -18,11 +18,19 @@ def index():
     return render_template("index.html", title='Home', async_mode=socketio.async_mode)#, user=user)
 
 
-# SOCKETIO ROUTES
+# SOCKETIO SCENE ROUTES
+
+@app.route('/scene/<scene_hash>')
+@login_required
+def scene(scene_hash):
+    return render_template('scene.html', title='Scene '+scene_hash, hash=scene_hash)
+
+
+# SOCKETIO TEST ROUTES
 
 @app.route('/testscene')
 @login_required
-def scene():
+def testscene():
     return render_template("testscene.html", title='SocketIO Test Scene')
 
 thread = None
